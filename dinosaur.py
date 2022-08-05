@@ -2,11 +2,18 @@ import pygame
 
 class Dinosaur:
     def __init__(self):
-        self.player = pygame.image.load("imgonline-com-ua-Resize-SO1MsSng35k1vaNt.jpg")
-        self.player.set_colorkey("WHITE")
-        self.playery = 0
+        self.player = pygame.Surface((80,80))
+        self.playerRect = self.player.get_rect()
+        self.player.fill((255,159,24))
+        self.playerRect.x = 100
+        self.playerRect.y = 251
+        self.speed = 20
         self.jumpUP = False
-        self.jumpDown = False
 
     def jump(self):
-        if self.jumpUP == True and self.playery
+        if self.jumpUP:
+            self.playerRect.y -= self.speed
+            self.speed -= 1
+            if self.playerRect.y == 251:
+                self.jumpUP = False
+                self.speed = 20
