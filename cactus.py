@@ -4,6 +4,7 @@ from random import randint
 class Cactus:
     def __init__(self):
         self.massiv_cactus = []
+        self.speed = 9
 
         body = pygame.Surface((50,120))
         cactusRect = body.get_rect()
@@ -22,11 +23,11 @@ class Cactus:
             self.massiv_cactus.append((body, cactusRect))
 
             for i in range(len(self.massiv_cactus)):
-                self.massiv_cactus[i][1].x -= 10
+                self.massiv_cactus[i][1].x -= self.speed
 
         else:
             for i in range(len(self.massiv_cactus)):
-                self.massiv_cactus[i][1].x -= 10
+                self.massiv_cactus[i][1].x -= self.speed
 
         if self.massiv_cactus[0][1].x < -50:
             self.massiv_cactus.pop(0)
